@@ -52,6 +52,7 @@ function Player(xCoord, yCoord, facing) {
   this.nextX2 = xCoord-1;
   this.nextY = yCoord;
   this.nextY2 = yCoord;
+  this.disableAllRobots = false;
 }
 
 function Robot(xCoord, yCoord, facing) {
@@ -490,44 +491,45 @@ function drawScreen() {
     $("#display").append("<br>");
   }
     if (player1.pause == false) {
-      player1.checkForRobots();
-      if (robot1.isFunctional == true) {
-        if (robot1.sight !== "player") {robot1.checkForPlayers()}
-        else {
-          if (moveCount == 2) {
-            robot1.move()
+      if (player1.disableAllRobots !== true) {
+        player1.checkForRobots();
+        if (robot1.isFunctional == true) {
+          if (robot1.sight !== "player") {robot1.checkForPlayers()}
+          else {
+            if (moveCount == 2) {
+              robot1.move()
+            }
           }
         }
-      }
-      if (robot2.isFunctional == true) {
-        if (robot2.sight !== "player") {robot2.checkForPlayers()}
-        else {
-          if (moveCount == 2) {
-            robot2.move()
+        if (robot2.isFunctional == true) {
+          if (robot2.sight !== "player") {robot2.checkForPlayers()}
+          else {
+            if (moveCount == 2) {
+              robot2.move()
+            }
           }
         }
-      }
-      if (robot3.isFunctional == true) {
-        if (robot3.sight !== "player") {robot3.checkForPlayers()}
-        else {
-          if (moveCount == 2) {
-            robot3.move()
+        if (robot3.isFunctional == true) {
+          if (robot3.sight !== "player") {robot3.checkForPlayers()}
+          else {
+            if (moveCount == 2) {
+              robot3.move()
+            }
           }
         }
-      }
-      if (robot4.isFunctional == true) {
-        if (robot4.sight !== "player") {robot4.checkForPlayers()}
-        else {
-          if (moveCount == 2) {
-            robot4.move()
+        if (robot4.isFunctional == true) {
+          if (robot4.sight !== "player") {robot4.checkForPlayers()}
+          else {
+            if (moveCount == 2) {
+              robot4.move()
+            }
           }
         }
+        if (moveCount == 2) {
+          moveCount = 0;
+        }
+        moveCount++;
       }
-      if (moveCount == 2) {
-        moveCount = 0;
-      }
-      moveCount++;
-
     }
 }
 
