@@ -209,7 +209,13 @@ Robot.prototype.move = function() {
       this.status = true;
     }
   }
-  $("span:nth-of-type("+spotSelector+")").css('border-'+this.facing, '10px solid black');
+
+  var width = $(window).width();
+  var height = $(window).height();
+
+    $("span:nth-of-type("+spotSelector+")").css('border-'+this.facing, '10px solid black');
+
+
 
 }
 
@@ -610,8 +616,6 @@ function keyup(e) {
 }
 
 $(document).ready(function() {
-
-
 
     Game._intervalId = setInterval(Game.run, 1000 / Game.fps);
 
